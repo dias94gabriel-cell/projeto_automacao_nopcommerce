@@ -13,7 +13,7 @@ Library    BuiltIn
 
 
 ### data ###
-Resource    ../data/global.robot
+Resource    ../Data/global.robot
 
 ### fixture ###
 
@@ -21,8 +21,8 @@ Resource    ../data/global.robot
 Resource    ../Pages/nopcommerce/nopcommerce.robot
 
 ### service ###
-Resource    ../service/Login/Login.robot
+Resource    ../Service/Login/Login.robot
 
 ### utils ###
 Resource    setup_teardown.robot
-Resource    ../utils/secrets.robot
+Resource    ../Utils/secrets.robot
