@@ -1,48 +1,35 @@
 *** Settings ***
 Resource    ../../Resource/Utils/base.robot
 
-Test Setup       Acesso ao Site
+Test Setup       Fazendo Login no Site
 Test Teardown    Fechar o navegador
 
 *** Test Cases ***
+# Fazendo Login no Site
+#    When Preencho Campo de Login
+#    And Preencho Campo de Senha
+#    Then Clico no Botão de Login
 
-Fazendo Login no Site
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   Then Clico no Botão de Login
-
-Incluindo Produto no Carrinho e abrindo o Carrinho
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   And Clico no Botão de Login
-   And Clico em Add to Cart
+Incluindo Produto no Carrinho e abrindo o Carrinho - valida inserção de produto no carrinho
+   When Clico em Add to Cart
    And Clico no Carrinho
    Then Valido Produto no Carrinho
 
 Remover produto do Carrinho
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   And Clico no Botão de Login
-   And Clico em Add to Cart
+   When Clico em Add to Cart
    And Clico no Carrinho
    And Clico em Remover Produto
    # Then Valido Produto Removido do Carrinho
 
 Incluindo Produto no Carrinho e Continuo Comprando
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   And Clico no Botão de Login
-   And Clico em Add to Cart
+   When Clico em Add to Cart
    And Clico no Carrinho
    And Clico em Continue Shopping
    And Incluo outro Produto no Carrinho
    Then Clico no Carrinho
 
 Checkout Funcionando
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   And Clico no Botão de Login
-   And Clico em Add to Cart
+   When Clico em Add to Cart
    And Clico no Carrinho
    And Clico em Checkout
    And Preencho First Name
@@ -52,10 +39,7 @@ Checkout Funcionando
    Then Clico em Finish
 
 Checkout Funcionando e Gerando PDF
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   And Clico no Botão de Login
-   And Clico em Add to Cart
+   When Clico em Add to Cart
    And Clico no Carrinho
    And Clico em Checkout
    And Preencho First Name
@@ -66,10 +50,7 @@ Checkout Funcionando e Gerando PDF
    Then Clico em Generate PDF order
 
 Checkout Funcionando e Voltando a Home Page
-   When Preencho Campo de Login
-   And Preencho Campo de Senha
-   And Clico no Botão de Login
-   And Clico em Add to Cart
+   When Clico em Add to Cart
    And Clico no Carrinho
    And Clico em Checkout
    And Preencho First Name

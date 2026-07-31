@@ -2,10 +2,6 @@
 Resource       ../../Utils/base.robot
 
 *** Variables ***
-
-${CAMPO_EMAIL}         //input[@id='user-name']
-${CAMPO_SENHA}         //input[@id='password']
-${LOGIN_BUTTON}        //input[@id='login-button']
 ${ADD_TO_CART}         //button[@id='add-to-cart-sauce-labs-backpack']
 ${CARRINHO}            //a[@class='shopping_cart_link']
 ${PRODUTO_CARRINHO}    //div[@class='cart_item']
@@ -21,59 +17,53 @@ ${FINISH}              (//button[normalize-space()='Finish'])[1]
 ${GENERATE_PDF}        //button[@id='generate-pdf-order']
 ${BACK_HOME}           //button[@id='back-to-products']
 
-
 *** Keywords ***
-
-Acesso ao Site
-    Abrir o navegador
-    Go To    url=${URL_SITE}
-
-Preencho Campo de Login
-    Click Element    ${CAMPO_EMAIL}
-    Input Text    id=user-name   ${USER_LOGIN}
-
-Preencho Campo de Senha
-    Click Element    ${CAMPO_SENHA}
-    Input Text    id=password    ${PASSWORD_LOGIN}
-
-Clico no Botão de Login
-    Click Element    ${LOGIN_BUTTON}
 
 Clico em Add to Cart
     Wait Until Element Is Visible    ${ADD_TO_CART}    timeout=10s
     Click Button    ${ADD_TO_CART}
 
 Clico no Carrinho
+    Wait Until Element Is Visible    ${CARRINHO}    timeout=10s
     Click Element    ${CARRINHO}
 
 Valido Produto no Carrinho
+    Wait Until Element Is Visible    ${PRODUTO_CARRINHO}    timeout=10s
     Element Should Be Visible   ${PRODUTO_CARRINHO}
     
 Clico em Remover Produto
+    Wait Until Element Is Visible    ${REMOVER_PRODUTO}    timeout=10s
     Click Button    ${REMOVER_PRODUTO}
 
 Clico em Continue Shopping
+    Wait Until Element Is Visible    ${CONTINUE_SHOPPING}    timeout=10s
     Click Button    ${CONTINUE_SHOPPING}
 
 Incluo outro Produto no Carrinho
+    Wait Until Element Is Visible    ${SEGUNDO_PRODUTO}    timeout=10s
     Click Button    ${SEGUNDO_PRODUTO}
 
 Clico em Checkout
+    Wait Until Element Is Visible    ${CHECKOUT}    timeout=10s
     Click Button    ${CHECKOUT}
 
 Preencho First Name
-    Sleep    5s
-    Click Element    ${FIRST_NAME}
+    Sleep     3s
+    Press Keys    NONE    ENTER
+    Sleep     3s
+    Wait Until Element Is Visible    ${FIRST_NAME}    timeout=10s
     Input Text    id=first-name    ${FIRST_NAME_VALUE}
 
 Preencho Last Name
-    Click Element    ${LAST_NAME}
+    Sleep     3s
+    Wait Until Element Is Visible    ${LAST_NAME}    timeout=10s
     Input Text    id=last-name    ${LAST_NAME_VALUE}
 Preencho Zip Code
-    Click Element    ${ZIP_CODE}
+    Wait Until Element Is Visible    ${ZIP_CODE}    timeout=10s
     Input Text    id=postal-code    ${ZIP_CODE_VALUE}
 
 Clico em Continue
+    Wait Until Element Is Visible    ${CONTINUE}    timeout=10s
     Click Button    ${CONTINUE}
 
 Clico em Finish
@@ -85,7 +75,9 @@ Clico em Finish
     Click Button  ${FINISH}
 
 Clico em Generate PDF order
+    Wait Until Element Is Visible    ${GENERATE_PDF}    timeout=10s
     Click Button    ${GENERATE_PDF}
 
 Clico em Back Home
+    Wait Until Element Is Visible    ${BACK_HOME}    timeout=10s
     Click Button    ${BACK_HOME}
