@@ -21,8 +21,8 @@ Resource    ../Data/global.robot
 Resource    ../Pages/nopcommerce/nopcommerce.robot
 
 ### service ###
-Resource    ../Service/Login/Login.robot
+Resource    ../Service/Login/login.robot
 
 ### utils ###
 Resource    setup_teardown.robot
-Resource    ../Utils/secrets.robot
+Resource    secrets.robot
