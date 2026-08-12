@@ -10,6 +10,7 @@ Library    RequestsLibrary
 Library    custom_keywords.py
 Library    OperatingSystem
 Library    BuiltIn
+Library    FakerLibrary
 
 
 ### data ###

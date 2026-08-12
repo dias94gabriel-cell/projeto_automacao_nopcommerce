@@ -19,54 +19,47 @@ ${BACK_HOME}           //button[@id='back-to-products']
 
 *** Keywords ***
 
-Clico em Add to Cart
+Clicar em Add to Cart
     Wait Until Element Is Visible    ${ADD_TO_CART}    timeout=10s
     Click Button    ${ADD_TO_CART}
 
-Clico no Carrinho
+Clicar no Carrinho
     Wait Until Element Is Visible    ${CARRINHO}    timeout=10s
     Click Element    ${CARRINHO}
 
-Valido Produto no Carrinho
+Validar Produto no Carrinho
     Wait Until Element Is Visible    ${PRODUTO_CARRINHO}    timeout=10s
     Element Should Be Visible   ${PRODUTO_CARRINHO}
     
-Clico em Remover Produto
+Clicar em Remover Produto
     Wait Until Element Is Visible    ${REMOVER_PRODUTO}    timeout=10s
     Click Button    ${REMOVER_PRODUTO}
 
-Clico em Continue Shopping
+Clicar em Continue Shopping
     Wait Until Element Is Visible    ${CONTINUE_SHOPPING}    timeout=10s
     Click Button    ${CONTINUE_SHOPPING}
 
-Incluo outro Produto no Carrinho
+Incluir outro Produto no Carrinho
     Wait Until Element Is Visible    ${SEGUNDO_PRODUTO}    timeout=10s
     Click Button    ${SEGUNDO_PRODUTO}
 
-Clico em Checkout
+Clicar em Checkout
     Wait Until Element Is Visible    ${CHECKOUT}    timeout=10s
     Click Button    ${CHECKOUT}
 
-Preencho First Name
-    Sleep     3s
-    Press Keys    NONE    ENTER
-    Sleep     3s
+Preencher Dados do Cliente
+    Sleep     2s
     Wait Until Element Is Visible    ${FIRST_NAME}    timeout=10s
-    Input Text    id=first-name    ${FIRST_NAME_VALUE}
+    ${cliente}=    Gerar Dados Cliente
+    Input Text    ${FIRST_NAME}    ${cliente['first_name']}
+    Input Text    ${LAST_NAME}     ${cliente['last_name']}
+    Input Text    ${ZIP_CODE}      ${cliente['zip_code']}
 
-Preencho Last Name
-    Sleep     3s
-    Wait Until Element Is Visible    ${LAST_NAME}    timeout=10s
-    Input Text    id=last-name    ${LAST_NAME_VALUE}
-Preencho Zip Code
-    Wait Until Element Is Visible    ${ZIP_CODE}    timeout=10s
-    Input Text    id=postal-code    ${ZIP_CODE_VALUE}
-
-Clico em Continue
+Clicar em Continue
     Wait Until Element Is Visible    ${CONTINUE}    timeout=10s
     Click Button    ${CONTINUE}
 
-Clico em Finish
+Clicar em Finish
     Sleep     3s
     Press Keys    NONE    PAGE_DOWN
     Sleep     3s
@@ -74,10 +67,10 @@ Clico em Finish
     Sleep     3s
     Click Button  ${FINISH}
 
-Clico em Generate PDF order
+Clicar em Generate PDF order
     Wait Until Element Is Visible    ${GENERATE_PDF}    timeout=10s
     Click Button    ${GENERATE_PDF}
 
-Clico em Back Home
+Clicar em Back Home
     Wait Until Element Is Visible    ${BACK_HOME}    timeout=10s
     Click Button    ${BACK_HOME}

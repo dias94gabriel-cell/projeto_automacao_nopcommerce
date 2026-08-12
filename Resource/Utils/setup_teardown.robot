@@ -15,9 +15,6 @@ Fechar o navegador
 Fazendo Login no Site
     Abrir o navegador
     Acesso ao Site
-    Preencho Campo de Login
-    Preencho Campo de Senha
-    Clico no Botão de Login
-
-    
-# criar acesso a app swag labs
+    Preencher Campo de Login
+    Preencher Campo de Senha
+    Clicar no Botão de Login
