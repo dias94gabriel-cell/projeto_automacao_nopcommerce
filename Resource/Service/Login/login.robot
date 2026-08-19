@@ -2,13 +2,11 @@
 Resource       ../../Utils/base.robot
 
 *** Variables ***
-
 ${CAMPO_EMAIL}         //input[@id='user-name']
 ${CAMPO_SENHA}         //input[@id='password']
 ${LOGIN_BUTTON}        //input[@id='login-button']
 
 *** Keywords ***
-
 Acesso ao Site
     Abrir o navegador
     Go To    url=${URL_SITE}

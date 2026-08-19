@@ -5,46 +5,45 @@ Test Setup       Fazendo Login no Site
 Test Teardown    Fechar o navegador
 
 *** Test Cases ***
-
 CT001 - Valida inserção de produto no carrinho
-   When Clicar em Add to Cart
-   And Clicar no Carrinho
-   Then Validar Produto no Carrinho  
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO 
+   Then Validar Elemento    PRODUTO_CARRINHO
 
 CT002 - Valida remoção de produto do Carrinho
-   When Clicar em Add to Cart
-   And Clicar no Carrinho
-   Then Clicar em Remover Produto
+  When Clicar Em    ADD_TO_CART
+  And Clicar Em    CARRINHO
+  Then Clicar Em   REMOVER_PRODUTO
 
 CT003 - Valida inclusão de produto no Carrinho e continuidade da compra
-   When Clicar em Add to Cart
-   And Clicar no Carrinho
-   And Clicar em Continue Shopping
-   And Incluir outro Produto no Carrinho
-   Then Clicar no Carrinho
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em   CONTINUE_SHOPPING
+   And Clicar Em   SEGUNDO_PRODUTO
+   Then Clicar Em   CARRINHO
 
 CT004 - Realiza o Checkout e Valida Funcionamento
-   When Clicar em Add to Cart
-   And Clicar no Carrinho
-   And Clicar em Checkout
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em    CHECKOUT
    And Preencher Dados do Cliente
-   And Clicar em Continue
-   Then Clicar em Finish
+   And Clicar Em    CONTINUE
+   Then Clicar Em    FINISH
 
 CT005 - Realiza o Checkout e Gera PDF
-   When Clicar em Add to Cart
-   And Clicar no Carrinho
-   And Clicar em Checkout
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em    CHECKOUT
    And Preencher Dados do Cliente
-   And Clicar em Continue
-   And Clicar em Finish
-   Then Clicar em Generate PDF order
+   And Clicar Em    CONTINUE
+   Then Clicar Em    FINISH
+   Then Clicar Em   GENERATE_PDF
 
 CT006 - Valida Checkout Funcionando e Retorno a Home Page
-   When Clicar em Add to Cart
-   And Clicar no Carrinho
-   And Clicar em Checkout
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em    CHECKOUT
    And Preencher Dados do Cliente
-   And Clicar em Continue
-   And Clicar em Finish
-   Then Clicar em Back Home
+   And Clicar Em    CONTINUE
+   Then Clicar Em    FINISH
+   Then Clicar Em   BACK_HOME
