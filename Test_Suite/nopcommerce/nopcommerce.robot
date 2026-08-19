@@ -5,57 +5,45 @@ Test Setup       Fazendo Login no Site
 Test Teardown    Fechar o navegador
 
 *** Test Cases ***
-# Fazendo Login no Site
-#    When Preencho Campo de Login
-#    And Preencho Campo de Senha
-#    Then Clico no Botão de Login
+CT001 - Valida inserção de produto no carrinho
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO 
+   Then Validar Elemento    PRODUTO_CARRINHO
 
-Incluindo Produto no Carrinho e abrindo o Carrinho - valida inserção de produto no carrinho
-   When Clico em Add to Cart
-   And Clico no Carrinho
-   Then Valido Produto no Carrinho
+CT002 - Valida remoção de produto do Carrinho
+  When Clicar Em    ADD_TO_CART
+  And Clicar Em    CARRINHO
+  Then Clicar Em   REMOVER_PRODUTO
 
-Remover produto do Carrinho
-   When Clico em Add to Cart
-   And Clico no Carrinho
-   And Clico em Remover Produto
-   # Then Valido Produto Removido do Carrinho
+CT003 - Valida inclusão de produto no Carrinho e continuidade da compra
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em   CONTINUE_SHOPPING
+   And Clicar Em   SEGUNDO_PRODUTO
+   Then Clicar Em   CARRINHO
 
-Incluindo Produto no Carrinho e Continuo Comprando
-   When Clico em Add to Cart
-   And Clico no Carrinho
-   And Clico em Continue Shopping
-   And Incluo outro Produto no Carrinho
-   Then Clico no Carrinho
+CT004 - Realiza o Checkout e Valida Funcionamento
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em    CHECKOUT
+   And Preencher Dados do Cliente
+   And Clicar Em    CONTINUE
+   Then Clicar Em    FINISH
 
-Checkout Funcionando
-   When Clico em Add to Cart
-   And Clico no Carrinho
-   And Clico em Checkout
-   And Preencho First Name
-   And Preencho Last Name
-   And Preencho Zip Code
-   And Clico em Continue
-   Then Clico em Finish
+CT005 - Realiza o Checkout e Gera PDF
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em    CHECKOUT
+   And Preencher Dados do Cliente
+   And Clicar Em    CONTINUE
+   Then Clicar Em    FINISH
+   Then Clicar Em   GENERATE_PDF
 
-Checkout Funcionando e Gerando PDF
-   When Clico em Add to Cart
-   And Clico no Carrinho
-   And Clico em Checkout
-   And Preencho First Name
-   And Preencho Last Name
-   And Preencho Zip Code
-   And Clico em Continue
-   And Clico em Finish
-   Then Clico em Generate PDF order
-
-Checkout Funcionando e Voltando a Home Page
-   When Clico em Add to Cart
-   And Clico no Carrinho
-   And Clico em Checkout
-   And Preencho First Name
-   And Preencho Last Name
-   And Preencho Zip Code
-   And Clico em Continue
-   And Clico em Finish
-   Then Clico em Back Home
+CT006 - Valida Checkout Funcionando e Retorno a Home Page
+   When Clicar Em    ADD_TO_CART
+   And Clicar Em    CARRINHO
+   And Clicar Em    CHECKOUT
+   And Preencher Dados do Cliente
+   And Clicar Em    CONTINUE
+   Then Clicar Em    FINISH
+   Then Clicar Em   BACK_HOME
